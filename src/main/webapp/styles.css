@@ -1,0 +1,83 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #F7F8F9;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#content-container {
+  z-index: 2;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 940px;
+  height: 100%;
+}
+
+#fun-fact {
+  text-align: center;
+  color: #254356;
+  font-size: 24px; /* Larger font size for fun facts */
+  margin-bottom: 20px; /* Space below the fun fact */
+}
+
+#choice {
+  display: flex;
+  justify-content: space-between; /* Space between buttons */
+  width: 100%;
+}
+
+button {
+  border-radius: 5px; /* Slightly rounded corners */
+  width: calc(50% - 10px); /* Adjust width to fit two buttons with spacing */
+  height: 60px; /* Fixed height for buttons */
+}
+
+button.a {
+  background-color: #1aaaf8; /* Brazil button color */
+}
+
+button.b {
+  background-color: #00cbca; /* Germany button color */
+}
+
+button:hover {
+  opacity: 0.9; /* Slightly dim buttons on hover */
+}
+
+#result {
+  text-align: center;
+  color: #c0c9ce; /* Color for result messages */
+  font-size: 18px; /* Font size for result messages */
+  margin-top: 20px; /* Space above the result message */
+}
+
+#content-container button:last-child {
+    margin-top: 20px; /* Space above the "Get Tradition" button */
+    width: auto; /* Allow this button to size automatically */
+    padding-left: 20px; /* Padding for better appearance */
+    padding-right: 20px; /* Padding for better appearance */
+}
+
+/* Optional styles for responsive design */
+@media (max-width: 600px) {
+    #fun-fact {
+        font-size: 20px; /* Smaller font size on small screens */
+    }
+
+    button {
+        font-size: 16px; /* Adjust button text size */
+        height: auto; /* Allow height to adjust based on content */
+    }
+}

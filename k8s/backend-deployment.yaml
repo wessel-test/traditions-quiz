@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quiz-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quiz-backend
+  template:
+    metadata:
+      labels:
+        app: quiz-backend
+    spec:
+      containers:
+      - name: backend
+        image: guiwessel/traditions-quiz-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://quiz-database-service:5432/quiz_game_db"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "guiwessel"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "Password123!"

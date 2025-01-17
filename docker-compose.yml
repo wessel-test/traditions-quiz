@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  quiz-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: guiwessel/traditions-quiz:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/quiz_game_db
+      SPRING_DATASOURCE_USERNAME: guiwessel
+      SPRING_DATASOURCE_PASSWORD: Password123!
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: quiz_db
+    environment:
+      POSTGRES_USER: guiwessel
+      POSTGRES_PASSWORD: Password123!
+      POSTGRES_DB: quiz_game_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

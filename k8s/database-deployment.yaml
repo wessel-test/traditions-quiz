@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quiz-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quiz-database
+  template:
+    metadata:
+      labels:
+        app: quiz-database
+    spec:
+      containers:
+      - name: database
+        image: postgres:15  # Using the official PostgreSQL image
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_USER
+          value: "guiwessel"
+        - name: POSTGRES_PASSWORD
+          value: "Password123!"
+        - name: POSTGRES_DB
+          value: "quiz_game_db"
